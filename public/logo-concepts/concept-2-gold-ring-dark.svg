@@ -1,0 +1,37 @@
+<svg width="340" height="96" viewBox="0 0 340 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Circus One — atom orbit, reversed">
+  <title>Circus One — Concept 2: Atom Orbit (reversed)</title>
+  <defs>
+    <radialGradient id="sph2d" cx="38%" cy="34%" r="70%">
+      <stop offset="0%" stop-color="#F85555"/>
+      <stop offset="42%" stop-color="#D03535"/>
+      <stop offset="100%" stop-color="#901818"/>
+    </radialGradient>
+    <linearGradient id="ring2d" x1="0%" y1="0%" x2="100%" y2="60%">
+      <stop offset="0%" stop-color="#A8A5A0"/>
+      <stop offset="45%" stop-color="#7A7774"/>
+      <stop offset="100%" stop-color="#9A9794"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <g transform="rotate(-22 42 48)">
+      <path d="M 14 48 A 30 11 0 0 1 70 48" fill="none" stroke="url(#ring2d)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g transform="rotate(28 42 48)">
+      <path d="M 16 48 A 28 10 0 0 1 68 48" fill="none" stroke="url(#ring2d)" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+    </g>
+    <circle cx="42" cy="48" r="16" fill="url(#sph2d)"/>
+    <ellipse cx="36" cy="41" rx="6" ry="4" fill="#FFFFFF" opacity="0.42"/>
+    <ellipse cx="35" cy="40" rx="2.5" ry="1.6" fill="#FFFFFF" opacity="0.6"/>
+    <g transform="rotate(-22 42 48)">
+      <path d="M 14 48 A 30 11 0 0 0 70 48" fill="none" stroke="url(#ring2d)" stroke-width="3" stroke-linecap="round" opacity="0.92"/>
+    </g>
+    <g transform="rotate(28 42 48)">
+      <path d="M 16 48 A 28 10 0 0 0 68 48" fill="none" stroke="url(#ring2d)" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    </g>
+  </g>
+  <text x="88" y="59"
+        font-family="'Trebuchet MS', 'Century Gothic', Futura, 'Segoe UI', sans-serif"
+        font-size="34" font-weight="600" letter-spacing="-0.5">
+    <tspan fill="#F5F2EC">circus</tspan><tspan fill="#A8A5A0">one</tspan>
+  </text>
+</svg>

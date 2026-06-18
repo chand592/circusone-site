@@ -1,0 +1,49 @@
+<svg width="340" height="96" viewBox="0 0 340 96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Circus One — atom orbit logo">
+  <title>Circus One — Concept 2: Atom Orbit</title>
+  <!--
+    More complex: two crossing orbit arcs (an atom-style ring system) in
+    darker metallic grey wrapping a glossy bolder-red sphere. The crossing
+    orbits add dimension and motion while staying faithful to the original's
+    "planet in orbit" feel. Sphere keeps the radial gradient + highlight.
+  -->
+  <defs>
+    <radialGradient id="sph2" cx="38%" cy="34%" r="70%">
+      <stop offset="0%" stop-color="#E03838"/>
+      <stop offset="42%" stop-color="#B02828"/>
+      <stop offset="100%" stop-color="#6E1414"/>
+    </radialGradient>
+    <linearGradient id="ring2" x1="0%" y1="0%" x2="100%" y2="60%">
+      <stop offset="0%" stop-color="#6B6864"/>
+      <stop offset="45%" stop-color="#3A3835"/>
+      <stop offset="100%" stop-color="#5C5A55"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <!-- First orbit back arc (rotated -22deg) -->
+    <g transform="rotate(-22 42 48)">
+      <path d="M 14 48 A 30 11 0 0 1 70 48" fill="none" stroke="url(#ring2)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <!-- Second orbit back arc (rotated +28deg, crossing) -->
+    <g transform="rotate(28 42 48)">
+      <path d="M 16 48 A 28 10 0 0 1 68 48" fill="none" stroke="url(#ring2)" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+    </g>
+    <!-- Bolder red sphere -->
+    <circle cx="42" cy="48" r="16" fill="url(#sph2)"/>
+    <!-- Specular highlight -->
+    <ellipse cx="36" cy="41" rx="6" ry="4" fill="#FFFFFF" opacity="0.38"/>
+    <ellipse cx="35" cy="40" rx="2.5" ry="1.6" fill="#FFFFFF" opacity="0.55"/>
+    <!-- First orbit front arc (in front of sphere) -->
+    <g transform="rotate(-22 42 48)">
+      <path d="M 14 48 A 30 11 0 0 0 70 48" fill="none" stroke="url(#ring2)" stroke-width="3" stroke-linecap="round" opacity="0.92"/>
+    </g>
+    <!-- Second orbit front arc -->
+    <g transform="rotate(28 42 48)">
+      <path d="M 16 48 A 28 10 0 0 0 68 48" fill="none" stroke="url(#ring2)" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    </g>
+  </g>
+  <text x="88" y="59"
+        font-family="'Trebuchet MS', 'Century Gothic', Futura, 'Segoe UI', sans-serif"
+        font-size="34" font-weight="600" letter-spacing="-0.5">
+    <tspan fill="#2A2825">circus</tspan><tspan fill="#6B6864">one</tspan>
+  </text>
+</svg>
