@@ -188,6 +188,109 @@ git push                # push to GitHub
 
 ---
 
+## New Device Setup / Recovery
+
+The **GitHub repo is the source of truth** for the site. If you lose your local files or switch devices, cloning the repo recovers all site code, components, styles, the original logo, and the logo concepts. The only things not in the repo are the development tools and the opencode configuration (which live globally on each machine).
+
+### What's recoverable from the repo (everything site-related)
+- All source code (`src/`, configs, `package.json`)
+- Original logo (`public/logo.png`)
+- Logo concepts (`logo-concepts/`, `public/logo-concepts/`)
+- This README
+
+### What's NOT in the repo (must set up per device)
+- Node.js, Git, GitHub CLI (development tools)
+- opencode + oh-my-opencode-slim configuration (lives in `~/.config/opencode/`)
+- GitHub authentication (per-device, interactive)
+
+### Step-by-step: set up on a new device
+
+#### 1. Install prerequisites
+
+- **Node.js** v18+ — download from https://nodejs.org
+- **Git** — download from https://git-scm.com/downloads (or `winget install Git.Git` on Windows)
+- **GitHub CLI** — download from https://cli.github.com (or `winget install GitHub.cli` on Windows)
+
+Verify:
+```bash
+node --version    # v18+ required
+git --version
+gh --version
+```
+
+#### 2. Authenticate with GitHub
+
+```bash
+gh auth login
+```
+Choose: GitHub.com → HTTPS → Yes (authenticate git) → Login with a web browser. Follow the prompts.
+
+#### 3. Clone the repo
+
+```bash
+git clone https://github.com/chand592/circusone-site.git
+cd circusone-site
+```
+
+#### 4. Install dependencies & run
+
+```bash
+npm install
+npm run dev
+```
+
+The dev server starts at **http://localhost:4321**. You're back where you left off.
+
+#### 5. (Optional) Restore opencode + oh-my-opencode-slim
+
+If you use opencode with the multi-agent plugin on the new device:
+
+```bash
+# Install opencode (follow official docs at https://opencode.ai)
+# Then install oh-my-opencode-slim with the opencode-go preset:
+bunx oh-my-opencode-slim@latest install --preset=opencode-go --companion=no
+```
+
+Then re-authenticate any providers and re-add MCP servers (e.g. Composio):
+```bash
+opencode auth login
+opencode mcp add composio --url https://connect.composio.dev/mcp
+opencode mcp auth composio    # interactive browser OAuth
+```
+
+Enable background subagents (Windows PowerShell):
+```powershell
+[Environment]::SetEnvironmentVariable('OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS', 'true', 'User')
+```
+
+Restart opencode, then run `ping all agents` to confirm the pantheon is online.
+
+### Backing up the opencode config (optional, for faster recovery)
+
+The opencode configuration at `~/.config/opencode/` is not in this repo (it's global, not project-specific). To back it up so you can restore it quickly on a new device, copy these files somewhere safe (e.g. a private gist or a separate dotfiles repo):
+
+- `~/.config/opencode/opencode.jsonc` — plugins, agents, MCP servers
+- `~/.config/opencode/oh-my-opencode-slim.json` — agent models + presets
+- `~/.config/opencode/tui.json` — TUI badge
+- `~/.config/opencode/skills/` — installed skills (simplify, codemap, etc.)
+
+### Recovery checklist
+
+If you're starting fresh on a new device, work through this in order:
+- [ ] Node.js installed (`node --version` works)
+- [ ] Git installed (`git --version` works)
+- [ ] GitHub CLI installed (`gh --version` works)
+- [ ] `gh auth login` completed (`gh auth status` shows logged in)
+- [ ] Repo cloned (`git clone https://github.com/chand592/circusone-site.git`)
+- [ ] `npm install` succeeded
+- [ ] `npm run dev` serves at http://localhost:4321
+- [ ] (Optional) opencode + oh-my-opencode-slim installed and `ping all agents` responds
+- [ ] (Optional) Composio MCP re-added and authenticated
+
+Once the checklist is complete, you have the full working environment back.
+
+---
+
 ## Next Steps
 
 - [ ] Director sign-off on the look (deep red + gold + cream palette)
