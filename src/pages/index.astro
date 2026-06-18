@@ -1,0 +1,216 @@
+---
+import Base from '@layouts/Base.astro';
+import Hero from '@components/Hero.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+import ProjectCard from '@components/ProjectCard.astro';
+import TestimonialCard from '@components/TestimonialCard.astro';
+import ClientLogo from '@components/ClientLogo.astro';
+import Stat from '@components/Stat.astro';
+import CTABand from '@components/CTABand.astro';
+
+const services = [
+  {
+    index: '01',
+    title: 'Brand Building & Corporate ID',
+    description: 'Identity systems, logo design, and corporate branding that turn businesses into recognisable standards.',
+    deliverables: ['Logo & identity', 'Brand guidelines', 'Visual systems', 'Brand strategy'],
+  },
+  {
+    index: '02',
+    title: 'Product Packaging',
+    description: 'Packaging design that protects, persuades, and stands out on the shelf — from luxury spirits to FMCG.',
+    deliverables: ['Structural design', 'Label & artwork', 'Dielines', 'Production support'],
+  },
+  {
+    index: '03',
+    title: 'Display & Showcases (3D)',
+    description: 'Three-dimensional displays, showcases, and shop navigation crafted to draw the eye and tell a story.',
+    deliverables: ['POS displays', 'Showcase units', 'Shop navigation', 'Event booths'],
+  },
+  {
+    index: '04',
+    title: 'Web & Multimedia',
+    description: 'Websites and multimedia experiences that extend your brand into digital with the same craft as the physical.',
+    deliverables: ['Website design', 'Interactive media', 'Brand films', 'Motion graphics'],
+  },
+];
+
+const featuredProjects = [
+  { title: 'Heritage Pack', category: 'Packaging', client: 'Royal Salute', year: '2023', hue: '12' },
+  { title: 'Pop-up Showcase', category: 'Display', client: 'Perrier Jouët', year: '2023', hue: '280' },
+  { title: 'Brand Refresh', category: 'Branding', client: 'Martell', year: '2022', hue: '30' },
+  { title: 'Property Campaign', category: 'Advertising', client: 'Savills', year: '2024', hue: '210' },
+];
+
+const clients = ['Martell', 'Chivas', 'Royal Salute', 'The Glenlivet', 'Ballantine\'s', 'Perrier Jouët', 'Absolut', 'Mumm', 'Penfolds', 'Wolf Blass', 'Savills', 'Sun Hung Kai', 'HKTB', 'Lindt', 'McDonald\'s', 'Volvo'];
+---
+
+<Base>
+  <!-- Hero -->
+  <Hero
+    number="01"
+    label="Est. 1992 — Hong Kong"
+    title="We add values to all"
+    highlight="business."
+    lead="Circus One Limited is a Hong Kong design and marketing firm crafting brand identities, packaging, and 3D experiences for clients from luxury spirits houses to local businesses — for over 30 years."
+  />
+
+  <!-- Service pillars -->
+  <section class="section-pad bg-cream">
+    <div class="container-content">
+      <SectionHeading
+        number="02"
+        label="What we do"
+        title="Four disciplines. One standard of craft."
+        lead="From the first sketch to the final showcase, we hold every touchpoint to the same exacting standard."
+      />
+
+      <div class="mt-14 grid gap-px bg-deepred/10 border border-deepred/10 sm:grid-cols-2 lg:grid-cols-4">
+        {services.map((s) => (
+          <ServiceCard {...s} />
+        ))}
+      </div>
+
+      <div class="mt-12">
+        <a href="/services" class="btn-ghost">All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured work — flat deepred -->
+  <section class="section-pad bg-deepred text-cream">
+    <div class="container-content">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <SectionHeading
+          number="03"
+          label="Selected work"
+          title="Where design meets results."
+          lead="A small selection of recent projects across our disciplines. Each is built on a long-term relationship, not a one-off transaction."
+          variant="dark"
+        />
+        <a href="/portfolio" class="hidden md:inline-flex btn-link-on-dark group/link">
+          View Portfolio
+          <svg class="h-3.5 w-3.5 text-gold opacity-0 -translate-x-1 transition-all duration-200 group-hover/link:opacity-100 group-hover/link:translate-x-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="mt-14 grid gap-px bg-cream/10 border border-cream/10 sm:grid-cols-2 lg:grid-cols-4">
+        {featuredProjects.map((p) => (
+          <ProjectCard {...p} variant="dark" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="bg-cream py-16 md:py-20 border-y border-deepred/10">
+    <div class="container-content">
+      <div class="grid grid-cols-2 gap-10 md:grid-cols-4">
+        <Stat stat="30+" label="Years in business" />
+        <Stat stat="200+" label="Projects delivered" />
+        <Stat stat="50+" label="Long-term clients" />
+        <Stat stat="7" label="Disciplines in-house" />
+      </div>
+    </div>
+  </section>
+
+  <!-- About teaser -->
+  <section class="section-pad bg-cream">
+    <div class="container-content grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
+      <div>
+        <SectionHeading
+          number="04"
+          label="Our story"
+          title="From Circus Design in 1992 to Circus One today."
+        />
+        <p class="prose-lead mt-6 text-pretty">
+          We started as a small Hong Kong studio with a simple belief: design should add value, not decoration. Three decades on, that belief still drives every project — whether we're crafting a luxury spirit's heritage pack or a local shop's window display.
+        </p>
+        <p class="prose-body mt-4">
+          Our client servicing and creative teams have supported businesses across spirits, property, hospitality, FMCG, and government for over 20 years. We build relationships first; the work follows.
+        </p>
+        <a href="/about" class="btn-link mt-8">More About Us</a>
+      </div>
+
+      <div class="relative">
+        <!-- Placeholder visual — REPLACE with real studio/work imagery -->
+        <div class="aspect-[4/5] w-full bg-deepred relative overflow-hidden border border-deepred/10">
+          <div class="absolute inset-0 flex flex-col justify-between p-8 text-cream">
+            <div>
+              <span class="rule-gold block"></span>
+              <div class="mt-6 text-xs uppercase tracking-[0.2em] text-cream/55">Est. 1992</div>
+            </div>
+            <div>
+              <div class="font-display text-3xl font-medium leading-tight md:text-4xl">
+                Hong Kong<br/>Design &amp; Marketing
+              </div>
+              <div class="mt-4 text-sm text-cream/55">Tsimshatsui · Kowloon</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client wall -->
+  <section class="section-pad bg-cream-200/40 border-y border-deepred/10">
+    <div class="container-content">
+      <SectionHeading
+        number="05"
+        label="Trusted by"
+        title="From luxury houses to local heroes."
+        lead="Our clients span the world's most recognised spirit and property brands, alongside Hong Kong businesses we've grown with for decades."
+        align="center"
+      />
+      <div class="mt-12 grid grid-cols-2 gap-px bg-deepred/10 border border-deepred/10 sm:grid-cols-3 lg:grid-cols-4">
+        {clients.map((c) => (
+          <ClientLogo name={c} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial highlight -->
+  <section class="section-pad bg-cream">
+    <div class="container-content">
+      <SectionHeading
+        number="06"
+        label="In their words"
+        title="Relationships, not transactions."
+        lead="We measure success by the clients who come back, project after project, year after year."
+        align="center"
+      />
+
+      <div class="mt-14 grid gap-12 md:grid-cols-3 gap-y-12">
+        <!-- REPLACE: these quotes are placeholders — do not attribute fabricated quotes to real clients/people -->
+        <TestimonialCard
+          quote="The team has been our go-to partner for over a decade. They understand our brand better than most of our own people."
+          author="Client Name"
+          role="Brand Director"
+          client="Spirits House"
+        />
+        <TestimonialCard
+          quote="From packaging to in-store displays, Circus One delivers consistently. They make us look premium without ever making us look cold."
+          author="Client Name"
+          role="Marketing Lead"
+          client="Luxury Brand"
+        />
+        <TestimonialCard
+          quote="They took our local shop and made it look like a flagship. Foot traffic and conversions both went up noticeably."
+          author="Client Name"
+          role="Owner"
+          client="Local Business"
+        />
+      </div>
+
+      <div class="mt-14">
+        <a href="/clients" class="btn-ghost">All Clients &amp; Testimonials</a>
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+</Base>

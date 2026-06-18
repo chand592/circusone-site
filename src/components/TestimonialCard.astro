@@ -1,0 +1,22 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  role: string;
+  client?: string;
+}
+
+const { quote, author, role, client } = Astro.props;
+---
+
+<figure class="flex h-full flex-col">
+  <span class="rule-gold"></span>
+  <blockquote class="mt-6 flex-1 font-display text-lg leading-relaxed text-deepred md:text-xl text-pretty">
+    &ldquo;{quote}<span class="text-gold">&rdquo;</span>
+  </blockquote>
+
+  <figcaption class="mt-8 border-t border-deepred/10 pt-5 text-sm">
+    <div class="font-medium text-deepred">{author}</div>
+    <div class="mt-1 text-heritage">{role}{client ? ` · ${client}` : ''}</div>
+  </figcaption>
+</figure>

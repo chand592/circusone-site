@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-cream text-deepred font-sans antialiased;
+    font-feature-settings: 'ss01', 'cv01';
+  }
+
+  ::selection {
+    @apply bg-gold text-deepred;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-medium;
+    font-feature-settings: 'ss01';
+    letter-spacing: -0.01em;
+  }
+
+  /* Numbers in stats and headings use old-style figures where available */
+  .tnum {
+    font-variant-numeric: oldstyle-nums;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-6 md:px-10;
+  }
+
+  /* Quiet, crafted buttons — sharp corners, hairline border, no glow */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-deepred px-7 py-3 text-sm font-medium tracking-wide text-cream transition-colors duration-200 hover:bg-deepred-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 border border-deepred/25 px-7 py-3 text-sm font-medium tracking-wide text-deepred transition-colors duration-200 hover:border-deepred hover:bg-deepred hover:text-cream;
+  }
+
+  .btn-on-dark {
+    @apply inline-flex items-center justify-center gap-2 bg-cream px-7 py-3 text-sm font-medium tracking-wide text-deepred transition-colors duration-200 hover:bg-gold hover:text-deepred;
+  }
+
+  .btn-link {
+    @apply inline-flex items-center gap-2 border-b border-deepred/30 pb-0.5 text-sm font-medium text-deepred transition-colors duration-200 hover:border-deepred hover:text-deepred;
+  }
+
+  .btn-link-on-dark {
+    @apply inline-flex items-center gap-2 border-b border-cream/30 pb-0.5 text-sm font-medium text-cream transition-colors duration-200 hover:border-gold hover:text-gold;
+  }
+
+  /* Section label — a quiet number + label, not the AI "eyebrow with line" */
+  .section-label {
+    @apply flex items-baseline gap-3 text-xs font-medium uppercase tracking-[0.18em] text-terracotta;
+  }
+
+  .section-label-num {
+    @apply font-display text-sm font-medium text-gold tabular-nums;
+  }
+
+  .heading-xl {
+    @apply font-display text-4xl font-medium leading-[1.08] md:text-6xl lg:text-7xl;
+  }
+
+  .heading-lg {
+    @apply font-display text-3xl font-medium leading-[1.12] md:text-5xl;
+  }
+
+  .heading-md {
+    @apply font-display text-xl font-medium leading-snug md:text-2xl;
+  }
+
+  .prose-lead {
+    @apply text-base leading-relaxed text-heritage md:text-lg;
+  }
+
+  .prose-body {
+    @apply text-sm leading-relaxed text-heritage md:text-[15px];
+  }
+
+  /* Hairline rule — the traditional alternative to a shadow */
+  .rule {
+    @apply block h-px w-full bg-deepred/10;
+  }
+
+  .rule-cream {
+    @apply block h-px w-full bg-cream/15;
+  }
+
+  .rule-gold {
+    @apply block h-px w-10 bg-gold;
+  }
+
+  /* Cards: hairline border, no shadow, no lift */
+  .card {
+    @apply border border-deepred/10 bg-cream-50 transition-colors duration-200 hover:border-deepred/25;
+  }
+
+  .card-dark {
+    @apply border border-cream/15 bg-transparent transition-colors duration-200 hover:border-cream/30;
+  }
+
+  /* Form fields — quiet, sharp */
+  .field-label {
+    @apply mb-2 block text-xs font-medium uppercase tracking-[0.18em] text-deepred/60;
+  }
+
+  .field-input {
+    @apply w-full border border-deepred/20 bg-cream-50 px-4 py-3 text-sm text-deepred placeholder:text-heritage/50 transition-colors duration-200 focus:border-deepred focus:outline-none;
+  }
+
+  .field-textarea {
+    @apply w-full border border-deepred/20 bg-cream-50 px-4 py-3 text-sm text-deepred placeholder:text-heritage/50 transition-colors duration-200 focus:border-deepred focus:outline-none;
+  }
+
+  .nav-link {
+    @apply relative text-sm font-medium text-deepred/70 transition-colors duration-200 hover:text-deepred;
+  }
+
+  .nav-link[data-active='true'] {
+    @apply text-deepred;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-px w-0 bg-deepred transition-all duration-200;
+  }
+
+  .nav-link:hover::after,
+  .nav-link[data-active='true']::after {
+    @apply w-full;
+  }
+
+  .section-pad {
+    @apply py-20 md:py-28;
+  }
+
+  .link-terracotta {
+    @apply text-terracotta transition-colors hover:text-terracotta-dark underline-offset-4 hover:underline;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}

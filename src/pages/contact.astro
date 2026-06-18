@@ -1,0 +1,112 @@
+---
+import Base from '@layouts/Base.astro';
+import Hero from '@components/Hero.astro';
+import ContactForm from '@components/ContactForm.astro';
+---
+
+<Base
+  title="Contact — Circus One Limited"
+  description="Get in touch with Circus One Limited. Hong Kong office at New Mandarin Plaza, Tsimshatsui. Phone +852 2503 4581, email info@circusone.com."
+>
+  <Hero
+    number="01"
+    label="Get in touch"
+    title="Let's build something"
+    highlight="memorable."
+    lead="Tell us a little about your project — or just say hello. We typically reply within 1–2 business days, and we're honest about whether we're the right fit."
+    primaryCta={{ label: 'Send a Brief', href: '#contact-form' }}
+    secondaryCta={{ label: 'View Services', href: '/services' }}
+  />
+
+  <!-- Contact details + form -->
+  <section id="contact-form" class="section-pad bg-cream">
+    <div class="container-content grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-20">
+      <!-- Left: contact details -->
+      <div class="lg:sticky lg:top-28">
+        <div class="section-label">
+          <span class="section-label-num">02</span>
+          <span>Reach us directly</span>
+        </div>
+        <h2 class="heading-lg mt-4 text-deepred text-balance">Circus One Limited</h2>
+        <span class="rule-gold mt-4"></span>
+        <p class="prose-lead mt-4">Hong Kong · Kowloon · Tsimshatsui</p>
+
+        <div class="mt-10 space-y-8">
+          <!-- Address -->
+          <div class="border-t border-deepred/10 pt-5">
+            <div class="text-xs uppercase tracking-[0.18em] text-terracotta">Office</div>
+            <address class="mt-2 not-italic text-sm leading-relaxed text-deepred">
+              No 203–208, 1/F New Mandarin Plaza<br />
+              14 Science Museum Road, Tsimshatsui<br />
+              Kowloon, Hong Kong
+            </address>
+          </div>
+
+          <!-- Phone -->
+          <div class="border-t border-deepred/10 pt-5">
+            <div class="text-xs uppercase tracking-[0.18em] text-terracotta">Phone &amp; Fax</div>
+            <div class="mt-2 text-sm text-deepred space-y-1">
+              <div><a href="tel:+85225034581" class="link-terracotta">t +852 2503 4581</a></div>
+              <div>f +852 2503 4616</div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="border-t border-deepred/10 pt-5">
+            <div class="text-xs uppercase tracking-[0.18em] text-terracotta">Email</div>
+            <div class="mt-2 text-sm text-deepred">
+              <a href="mailto:info@circusone.com" class="link-terracotta">info@circusone.com</a>
+            </div>
+            <div class="mt-1 text-xs text-heritage">
+              Recruitment: <a href="mailto:recruit@circusone.com" class="link-terracotta">recruit@circusone.com</a>
+            </div>
+          </div>
+
+          <!-- Hours -->
+          <div class="border-t border-deepred/10 pt-5">
+            <div class="text-xs uppercase tracking-[0.18em] text-terracotta">Office hours</div>
+            <div class="mt-2 text-sm text-deepred">Monday – Friday · 9:30am – 6:30pm HKT</div>
+            <!-- REPLACE: confirm actual office hours -->
+          </div>
+        </div>
+
+        <!-- Map placeholder — flat, quiet -->
+        <div class="mt-10 border border-deepred/10 bg-deepred aspect-[4/3] relative">
+          <div class="absolute inset-0 flex items-center justify-center text-center text-cream">
+            <div>
+              <svg class="mx-auto h-7 w-7 text-gold" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-7.5-7-12a7 7 0 1114 0c0 4.5-7 12-7 12z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+              <div class="mt-3 text-sm font-medium">New Mandarin Plaza</div>
+              <div class="text-xs text-cream/55 mt-1">14 Science Museum Road, Tsimshatsui</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div>
+        <div class="section-label">
+          <span class="section-label-num">03</span>
+          <span>Send a brief</span>
+        </div>
+        <h2 class="heading-lg mt-4 text-deepred text-balance">Tell us about your project.</h2>
+        <p class="prose-lead mt-4 max-w-xl text-pretty">
+          The more we know up front, the more useful our first reply will be. Don't worry about polish — a few honest sentences is enough.
+        </p>
+
+        <div class="mt-10 border border-deepred/10 bg-cream-50 p-7 md:p-10">
+          <ContactForm />
+
+          <div class="mt-8 border-t border-deepred/10 pt-6 text-xs text-heritage">
+            <p>
+              This form is powered by Formspree. Submissions are forwarded to <a href="mailto:info@circusone.com" class="link-terracotta">info@circusone.com</a>.
+              <!-- REPLACE: set up a Formspree form at formspree.io and update the form action in src/components/ContactForm.astro with your endpoint ID. -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,179 @@
+---
+import Base from '@layouts/Base.astro';
+import Hero from '@components/Hero.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import Stat from '@components/Stat.astro';
+import CTABand from '@components/CTABand.astro';
+
+const values = [
+  { title: 'Relationships first', text: 'We invest in long-term partnerships, not project-by-project transactions. Most of our clients have been with us for years.' },
+  { title: 'Craft, always', text: 'Every deliverable — from a luxury pack to a local shop sign — gets the same attention to detail. Standards don\'t slide.' },
+  { title: 'Strategy before pixels', text: 'We start with the business problem. Aesthetics follow from understanding, not the other way around.' },
+  { title: 'In-house, end-to-end', text: 'Seven disciplines under one roof. No briefs lost between agencies, no inconsistent voices across your brand.' },
+];
+
+const timeline = [
+  { year: '1992', text: 'Founded as Circus Design in Hong Kong.' },
+  { year: '2000s', text: 'Expanded from branding into packaging, 3D display, and events for the spirits sector.' },
+  { year: '2010s', text: 'Added web, multimedia, and digital to the in-house offer. Rebranded as Circus One Limited.' },
+  { year: 'Today', text: 'A multi-disciplinary studio trusted by global spirits houses, property groups, and local businesses alike.' },
+];
+---
+
+<Base
+  title="About — Circus One Limited"
+  description="Founded in 1992, Circus One Limited is a Hong Kong design and marketing firm with seven disciplines under one roof and relationships that span decades."
+>
+  <Hero
+    number="01"
+    label="About us"
+    title="Design that adds"
+    highlight="values to business."
+    lead="Circus One Limited has been a Hong Kong design partner since 1992 — formerly known as Circus Design. Our client servicing and creative teams have supported businesses across spirits, property, hospitality, FMCG, and government for over 20 years."
+    primaryCta={{ label: 'See the Work', href: '/portfolio' }}
+    secondaryCta={{ label: 'Get in Touch', href: '/contact' }}
+  />
+
+  <!-- Story -->
+  <section class="section-pad bg-cream">
+    <div class="container-content grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-20">
+      <div>
+        <SectionHeading
+          number="02"
+          label="Our story"
+          title="A standard that inspires — and lasts."
+        />
+        <div class="mt-6 space-y-4 text-base leading-relaxed text-heritage">
+          <p>
+            In the commercial world, to confidently explore your market, you need a partner who combines in-depth design and corporate identity knowledge with a clear brand-building perspective.
+          </p>
+          <p>
+            We established in 1992, formerly known as Circus Design. Our experienced client servicing and creative teams have been supporting business in design and production for over 20 years. We support all your marketing needs — corporate ID &amp; branding, display units and showcases, advertising and collateral design, product packaging, multimedia, event production, exhibition, shop navigation, and photography.
+          </p>
+          <p class="text-deepred font-medium">
+            <span class="rule-gold block mb-4"></span>
+            Our works of corporate branding can inspire your company in the same way a standard can inspire a country. Circus One adds values to all business.
+          </p>
+        </div>
+      </div>
+
+      <!-- Identity card — flat deepred, no glow -->
+      <div class="relative">
+        <div class="bg-deepred p-10 text-cream border border-deepred/10">
+          <div class="section-label !text-gold">
+            <span class="section-label-num">—</span>
+            <span>By the numbers</span>
+          </div>
+          <div class="mt-10 grid grid-cols-2 gap-y-10 gap-x-6">
+            <div>
+              <div class="font-display text-4xl font-medium text-gold tnum md:text-5xl">30+</div>
+              <div class="mt-2 text-xs uppercase tracking-[0.18em] text-cream/55">Years in business</div>
+            </div>
+            <div>
+              <div class="font-display text-4xl font-medium text-gold tnum md:text-5xl">200+</div>
+              <div class="mt-2 text-xs uppercase tracking-[0.18em] text-cream/55">Projects delivered</div>
+            </div>
+            <div>
+              <div class="font-display text-4xl font-medium text-gold tnum md:text-5xl">50+</div>
+              <div class="mt-2 text-xs uppercase tracking-[0.18em] text-cream/55">Long-term clients</div>
+            </div>
+            <div>
+              <div class="font-display text-4xl font-medium text-gold tnum md:text-5xl">7</div>
+              <div class="mt-2 text-xs uppercase tracking-[0.18em] text-cream/55">Disciplines in-house</div>
+            </div>
+          </div>
+
+          <div class="mt-10 border-t border-cream/15 pt-6 text-sm text-cream/60 space-y-1.5">
+            <div>Hong Kong · Kowloon · Tsimshatsui</div>
+            <div>Formerly Circus Design</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="section-pad bg-cream-200/40 border-y border-deepred/10">
+    <div class="container-content">
+      <SectionHeading
+        number="03"
+        label="The journey"
+        title="Three decades, one studio."
+        lead="A short history of how Circus One became what it is today."
+        align="center"
+      />
+
+      <div class="mt-14 grid gap-px bg-deepred/10 border border-deepred/10 md:grid-cols-2 lg:grid-cols-4">
+        {timeline.map((t) => (
+          <div class="bg-cream-50 p-7 md:p-8">
+            <div class="font-display text-2xl font-medium text-gold tnum">{t.year}</div>
+            <p class="prose-body mt-3">{t.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section-pad bg-cream">
+    <div class="container-content">
+      <SectionHeading
+        number="04"
+        label="What we believe"
+        title="Four principles, kept since 1992."
+        lead="They're the reason our clients stay — and the reason we keep winning new ones."
+        align="center"
+      />
+
+      <div class="mt-14 grid gap-px bg-deepred/10 border border-deepred/10 md:grid-cols-2">
+        {values.map((v, i) => (
+          <div class="flex gap-6 bg-cream-50 p-7 md:p-8">
+            <div class="font-display text-2xl font-medium text-gold tnum shrink-0">0{i + 1}</div>
+            <div>
+              <h3 class="heading-md text-deepred">{v.title}</h3>
+              <p class="prose-body mt-2">{v.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team placeholder -->
+  <section class="section-pad bg-cream-200/40 border-t border-deepred/10">
+    <div class="container-content">
+      <SectionHeading
+        number="05"
+        label="The people"
+        title="A small, senior team."
+        lead="Our client servicing and creative teams have worked together for years. You'll work with the same people from brief to rollout — no account managers handing you down the chain."
+        align="center"
+      />
+
+      <!-- REPLACE: team grid with real photos, names, and roles -->
+      <div class="mt-12 grid gap-px bg-deepred/10 border border-deepred/10 md:grid-cols-2 lg:grid-cols-4">
+        {['Founder & Creative Director', 'Client Services Director', 'Design Lead', '3D & Production Lead'].map((role, i) => (
+          <div class="bg-cream-50">
+            <div class="aspect-[4/5] w-full bg-deepred relative overflow-hidden">
+              <div class="absolute inset-0 flex flex-col justify-between p-6 text-cream">
+                <span class="rule-gold block"></span>
+                <div class="font-display text-4xl font-medium text-gold/20 tnum">0{i + 1}</div>
+              </div>
+            </div>
+            <div class="p-5 border-t border-deepred/10">
+              <div class="text-sm font-medium text-deepred">Name to come</div>
+              <div class="text-xs text-heritage mt-1">{role}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    title="Want to know if we're the right partner?"
+    lead="The quickest way is a short conversation. We'll be honest if we're not the right fit — and helpful about who might be."
+    ctaLabel="Get in Touch"
+    ctaHref="/contact"
+  />
+</Base>

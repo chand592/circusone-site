@@ -1,0 +1,123 @@
+---
+import Base from '@layouts/Base.astro';
+import Hero from '@components/Hero.astro';
+import SectionHeading from '@components/SectionHeading.astro';
+import TestimonialCard from '@components/TestimonialCard.astro';
+import ClientLogo from '@components/ClientLogo.astro';
+import CTABand from '@components/CTABand.astro';
+
+const clients = [
+  'Martell', 'Chivas', 'Royal Salute', 'The Glenlivet', 'Ballantine\'s',
+  'Perrier Jouët', 'Absolut', 'Mumm', 'Penfolds', 'Wolf Blass',
+  'Savills', 'Hopewell', 'Sun Hung Kai', 'HKTB', 'New Mandarin Plaza',
+  'Lindt', 'McDonald\'s', 'Volvo', 'Fitness First', 'Dymocks',
+  'Mentos', 'CRC', 'Swire Motors', 'Dry Finish',
+];
+
+// REPLACE: testimonial quotes are placeholders — do not attribute fabricated quotes to real people/clients.
+const testimonials = [
+  { quote: 'The team has been our go-to partner for over a decade. They understand our brand better than most of our own people — and they keep our standards high without ever making it feel like hard work.', author: 'Client Name', role: 'Brand Director', client: 'Spirits House' },
+  { quote: 'From packaging to in-store displays, Circus One delivers consistently. They make us look premium without ever looking cold. That balance is rare.', author: 'Client Name', role: 'Marketing Lead', client: 'Luxury Brand' },
+  { quote: 'They took our local shop and made it look like a flagship. Foot traffic and conversions both went up noticeably within the first month.', author: 'Client Name', role: 'Owner', client: 'Local Business' },
+  { quote: 'We\'ve worked with a lot of agencies. Circus One is the only one where the people who pitched are the people who actually do the work.', author: 'Client Name', role: 'CMO', client: 'Property Group' },
+  { quote: 'Their production knowledge is what sets them apart. Beautiful concepts are one thing — getting them manufactured to spec is another. They handle both.', author: 'Client Name', role: 'Operations Director', client: 'FMCG Brand' },
+  { quote: 'A genuine long-term partner. They remember what we tried three years ago and why it didn\'t work — and that institutional memory saves us every time.', author: 'Client Name', role: 'Marketing Manager', client: 'Hospitality Group' },
+];
+
+const caseStudies = [
+  { client: 'Royal Salute', category: 'Packaging · Branding', summary: 'A heritage pack refresh for a flagship expression — balancing legacy cues with a contemporary shelf presence.' },
+  { client: 'Savills', category: 'Advertising · Display', summary: 'A property launch campaign spanning press, brochure, and on-site show suite signage.' },
+  { client: 'HKTB', category: 'Campaign · Multimedia', summary: 'A tourism board campaign spanning print, digital, and event activation across multiple markets.' },
+];
+---
+
+<Base
+  title="Clients & Testimonials — Circus One Limited"
+  description="Three decades of long-term relationships with brands from luxury spirits houses to local Hong Kong businesses."
+>
+  <Hero
+    number="01"
+    label="Clients & testimonials"
+    title="Relationships,"
+    highlight="not transactions."
+    lead="We measure our success by the clients who come back, project after project, year after year. A selection of the brands we've had the privilege of working with — and what they say about us."
+    primaryCta={{ label: 'Start a Project', href: '/contact' }}
+    secondaryCta={{ label: 'See the Work', href: '/portfolio' }}
+  />
+
+  <!-- Client wall -->
+  <section class="section-pad bg-cream">
+    <div class="container-content">
+      <SectionHeading
+        number="02"
+        label="Trusted by"
+        title="From luxury houses to local heroes."
+        lead="A selection of clients we've worked with across our 30+ years. The range is intentional — design value isn't a function of budget, it's a function of care."
+      />
+
+      <div class="mt-12 grid grid-cols-2 gap-px bg-deepred/10 border border-deepred/10 sm:grid-cols-3 lg:grid-cols-4">
+        {clients.map((c) => (
+          <ClientLogo name={c} />
+        ))}
+      </div>
+
+      <p class="mt-10 text-xs text-heritage max-w-2xl">
+        Client names shown represent public references from the existing circusone.com site. Final selection and any logo artwork to be confirmed by Circus One.
+      </p>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section-pad bg-cream-200/40 border-y border-deepred/10">
+    <div class="container-content">
+      <SectionHeading
+        number="03"
+        label="In their words"
+        title="What our clients say."
+        lead="Placeholder testimonials for the prototype — these will be replaced with real, attributed quotes (and approvals) before launch."
+        align="center"
+      />
+
+      <div class="mt-14 grid gap-12 md:grid-cols-2 lg:grid-cols-3 gap-y-12">
+        {testimonials.map((t) => (
+          <TestimonialCard {...t} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Case studies -->
+  <section class="section-pad bg-cream">
+    <div class="container-content">
+      <SectionHeading
+        number="04"
+        label="Case studies"
+        title="A few relationships, in detail."
+        lead="Selected case studies — each a longer engagement, not a single deliverable."
+      />
+
+      <div class="mt-12 grid gap-px bg-deepred/10 border border-deepred/10 md:grid-cols-3">
+        {caseStudies.map((c) => (
+          <article class="flex flex-col bg-cream-50 p-7 md:p-8">
+            <div class="text-xs uppercase tracking-[0.18em] text-terracotta">{c.category}</div>
+            <h3 class="heading-md mt-3 text-deepred">{c.client}</h3>
+            <p class="prose-body mt-3 flex-1">{c.summary}</p>
+            <a href="/portfolio" class="mt-6 btn-link text-xs uppercase tracking-[0.18em] group/link">
+              View Project
+              <svg class="h-3.5 w-3.5 text-gold opacity-0 -translate-x-1 transition-all duration-200 group-hover/link:opacity-100 group-hover/link:translate-x-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABand
+    title="Want to be on this list?"
+    lead="Every relationship here started with a single project. Let's see if yours is the right fit."
+    ctaLabel="Start a Conversation"
+    ctaHref="/contact"
+  />
+</Base>
