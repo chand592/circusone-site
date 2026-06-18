@@ -19,21 +19,21 @@ const isActive = (href: string) => {
   id="site-header"
   class="sticky top-0 z-50 border-b border-deepred/10 bg-cream transition-colors duration-200"
 >
-  <div class="container-content flex h-20 items-center justify-between gap-6">
+  <div class="container-content flex h-16 items-center justify-between gap-6">
     <!-- Logo — multiply blend removes the white background against cream -->
     <a href="/" class="flex items-center gap-3 shrink-0" aria-label="Circus One Limited — home">
       <img
         src="/logo.png"
         alt="Circus One Limited"
-        width="180"
-        height="56"
-        class="h-9 w-auto md:h-11"
+        width="200"
+        height="62"
+        class="h-10 w-auto md:h-12"
         style="mix-blend-mode: multiply;"
       />
     </a>
 
     <!-- Desktop nav -->
-    <nav class="hidden lg:flex items-center gap-9" aria-label="Primary">
+    <nav class="hidden lg:flex items-center gap-10" aria-label="Primary">
       {navItems.map((item) => (
         <a href={item.href} class="nav-link" data-active={isActive(item.href)}>
           {item.label}

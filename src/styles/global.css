@@ -121,7 +121,7 @@
   }
 
   .nav-link {
-    @apply relative text-sm font-medium text-deepred/70 transition-colors duration-200 hover:text-deepred;
+    @apply relative text-base font-medium text-deepred/70 transition-colors duration-200 hover:text-deepred;
   }
 
   .nav-link[data-active='true'] {
