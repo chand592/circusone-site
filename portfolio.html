@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Selected work from Circus One Limited — branding, packaging, 3D display, advertising, events, and multimedia for clients from luxury spirits to local businesses." />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Portfolio — Circus One Limited</title>
+</head>
+<body>
+  <header id="site-header" class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Circus One Limited — home">
+        <img src="/logo.png" alt="Circus One Limited" width="200" height="62" />
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/services.html" class="nav-link">Services</a>
+        <a href="/portfolio.html" class="nav-link" data-active="true">Portfolio</a>
+        <a href="/clients.html" class="nav-link">Clients</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+      </nav>
+      <a href="/contact.html" class="btn btn-primary btn-primary--sm desktop-only">Start a Project</a>
+      <button id="menu-toggle" class="menu-toggle mobile-only" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="mobile-menu">
+      <nav class="container mobile-menu__list" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/portfolio.html" data-active="true">Portfolio</a>
+        <a href="/clients.html">Clients</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/contact.html" class="btn btn-primary">Start a Project</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__max">
+          <div class="section-label section-label--gold">
+            <span class="section-label-num">01</span>
+            <span>Selected work</span>
+          </div>
+          <h1 class="heading-xl hero__title text-balance">
+            Design that <em>earns its keep.</em>
+          </h1>
+          <p class="prose-lead hero__lead text-pretty">
+            A rotating selection of recent projects. Filter by discipline, or scroll through the full range — every piece is the result of a relationship, not a one-off.
+          </p>
+          <div class="hero__cta-row">
+            <a href="/contact.html" class="btn btn-on-dark">Start a Project</a>
+            <a href="/services.html" class="btn-link--on-dark">Our Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio grid -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-heading-row">
+          <div class="section-heading section-heading--dark">
+            <div class="section-label section-label--gold">
+              <span class="section-label-num">02</span>
+              <span>The work</span>
+            </div>
+            <span class="section-heading__rule-gold"></span>
+            <h2 class="heading-lg section-heading__title">Recent projects.</h2>
+          </div>
+          <div class="filter-bar" id="filter-bar">
+            <button type="button" data-filter="All" aria-pressed="true">All</button>
+            <button type="button" data-filter="Branding" aria-pressed="false">Branding</button>
+            <button type="button" data-filter="Packaging" aria-pressed="false">Packaging</button>
+            <button type="button" data-filter="Display" aria-pressed="false">Display</button>
+            <button type="button" data-filter="Advertising" aria-pressed="false">Advertising</button>
+            <button type="button" data-filter="Event" aria-pressed="false">Event</button>
+            <button type="button" data-filter="Multimedia" aria-pressed="false">Multimedia</button>
+          </div>
+        </div>
+
+        <div id="project-grid" class="grid-3 grid-3--dark mt-14">
+          <div data-category="Packaging" class="project-item">
+            <article class="project-card">
+              <div class="project-card__plate" style="background: hsl(12 22% 20%);">
+                <span class="project-card__category">Packaging</span>
+                <span class="rule-gold" style="position:absolute;left:1.25rem;top:3rem;width:2rem;"></span>
+                <span class="project-card__client">Royal Salute</span>
+              </div>
+              <div class="project-card__meta">
+                <div class="project-card__meta-cat">Royal Salute — 2023</div>
+                <h3 class="project-card__title">Heritage Pack</h3>
+              </div>
+            </article>
+          </div>
+          <div data-category="Display" class="project-item">
+            <article class="project-card">
+              <div class="project-card__plate" style="background: hsl(280 22% 20%);">
+                <span class="project-card__category">Display</span>
+                <span class="rule-gold" style="position:absolute;left:1.25rem;top:3rem;width:2rem;"></span>
+                <span class="project-card__client">Perrier Jouët</span>
+              </div>
+              <div class="project-card__meta">
+                <div class="project-card__meta-cat">Perrier Jouët — 2023</div>
+                <h3 class="project-card__title">Pop-up Showcase</h3>
+              </div>
+            </article>
+          </div>
+          <div data-category="Branding" class="project-item">
+            <article class="project-card">
+              <div class="project-card__plate" style="background: hsl(30 22% 20%);">
+                <span class="project-card__category">Branding</span>
+                <span class="rule-gold" style="position:absolute;left:1.25rem;top:3rem;width:2rem;"></span>
+                <span class="project-card__client">Martell</span>
+              </div>
+              <div class="project-card__meta">
+                <div class="project-card__meta-cat">Martell — 2022</div>
+                <h3 class="project-card__title">Brand Refresh</h3>
+              </div>
+            </article>
+          </div>
+          <div data-category="Packaging" class="project-item">
+            <article class="project-card">
+              <div class="project-card__plate" style="background: hsl(45 22% 20%);">
+                <span class="project-card__category">Packaging</span>
+                <span class="rule-gold" style="position:absolute;left:1.25rem;top:3rem;width:2rem;"></span>
+                <span class="project-card__client">Chivas</span>
+              </div>
+              <div class="project-card__meta">
+                <div class="project-card__meta-cat">Chivas — 2023</div>
+                <h3 class="project-card__title">Limited Edition</h3>
+              </div>
+            </article>
+          </div>
+          <div data-category="Advertising" class="project-item">
+            <article class="project-card">
+              <div class="project-card__plate" style="background: hsl(210 22% 20%);">
+                <span class="project-card__category">Advertising</span>
+                <span class="rule-gold" style="position:absolute;left:1.25rem;top:3rem;width:2rem;"></span>
+                <span class="project-card__client">Savills</span>
+              </div>
+              <div class="project-card__meta">
+                <div class="project-card__meta-cat">Savills — 2024</div>
+                <h3 class="project-card__title">Property Campaign</h3>
+              </div>
+            </article>
+          </div>
+          <div data-category="Display" class="project-item">
+            <article class="project-card">
+              <div class="project-card__plate" style="background: hsl(200 22% 20%);">
+                <span class="project-card__category">Display</span>
+                <span class="rule-gold" style="position:absolute;left:1.25rem;top:3rem;width:2rem;"></span>
+                <span class="project-card__client">Absolut</span>
+              </div>
+              <div class="project-card__meta">
+                <div class="project-card__meta-cat">Absolut — 2022</div>
+                <h3 class="project-card__title">Window Installation</h3>
+              </div>
+            </article>
+          </div>
+          <div data-category="Packaging" class="project-item">
+            <article class="project-card">
+              <div class="project-card__plate" style="background: hsl(350 22% 20%);">
+                <span class="project-card__category">Packaging</span>
+                <span class="rule-gold" style="position:absolute;left:1.25rem;top:3rem;width:2rem;"></span>
+                <span class="project-card__client">Penfolds</span>
+              </div>
+              <div class="project-card__meta">
+                <div class="project-card__meta-cat">Penfolds — 2023</div>
+                <h3 class="project-card__title">Range Refresh</h3>
+              </div>
+            </article>
+          </div>
+          <div data-category="Event" class="project-item">
+            <article class="project-card">
+              <div class="project-card__plate" style="background: hsl(230 22% 20%);">
+                <span class="project-card__category">Event</span>
+                <span class="rule-gold" style="position:absolute;left:1.25rem;top:3rem;width:2rem;"></span>
+                <span class="project-card__client">Sun Hung Kai</span>
+              </div>
+              <div class="project-card__meta">
+                <div class="project-card__meta-cat">Sun Hung Kai — 2024</div>
+                <h3 class="project-card__title">Launch Event</h3>
+              </div>
+            </article>
+          </div>
+          <div data-category="Display" class="project-item">
+            <article class="project-card">
+              <div class="project-card__plate" style="background: hsl(20 22% 20%);">
+                <span class="project-card__category">Display</span>
+                <span class="rule-gold" style="position:absolute;left:1.25rem;top:3rem;width:2rem;"></span>
+                <span class="project-card__client">Lindt</span>
+              </div>
+              <div class="project-card__meta">
+                <div class="project-card__meta-cat">Lindt — 2023</div>
+                <h3 class="project-card__title">Seasonal Display</h3>
+              </div>
+            </article>
+          </div>
+          <div data-category="Advertising" class="project-item">
+            <article class="project-card">
+              <div class="project-card__plate" style="background: hsl(180 22% 20%);">
+                <span class="project-card__category">Advertising</span>
+                <span class="rule-gold" style="position:absolute;left:1.25rem;top:3rem;width:2rem;"></span>
+                <span class="project-card__client">HKTB</span>
+              </div>
+              <div class="project-card__meta">
+                <div class="project-card__meta-cat">HKTB — 2022</div>
+                <h3 class="project-card__title">Tourism Campaign</h3>
+              </div>
+            </article>
+          </div>
+          <div data-category="Multimedia" class="project-item">
+            <article class="project-card">
+              <div class="project-card__plate" style="background: hsl(350 22% 20%);">
+                <span class="project-card__category">Multimedia</span>
+                <span class="rule-gold" style="position:absolute;left:1.25rem;top:3rem;width:2rem;"></span>
+                <span class="project-card__client">Mumm</span>
+              </div>
+              <div class="project-card__meta">
+                <div class="project-card__meta-cat">Mumm — 2023</div>
+                <h3 class="project-card__title">Brand Film</h3>
+              </div>
+            </article>
+          </div>
+          <div data-category="Packaging" class="project-item">
+            <article class="project-card">
+              <div class="project-card__plate" style="background: hsl(0 22% 20%);">
+                <span class="project-card__category">Packaging</span>
+                <span class="rule-gold" style="position:absolute;left:1.25rem;top:3rem;width:2rem;"></span>
+                <span class="project-card__client">Wolf Blass</span>
+              </div>
+              <div class="project-card__meta">
+                <div class="project-card__meta-cat">Wolf Blass — 2022</div>
+                <h3 class="project-card__title">Label Series</h3>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <p id="empty-state" class="filter-empty is-hidden">No projects in this category yet.</p>
+      </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="section section--cream">
+      <div class="container">
+        <div class="section-heading section-heading--center">
+          <div class="section-label">
+            <span class="section-label-num">03</span>
+            <span>Capabilities</span>
+          </div>
+          <h2 class="heading-lg section-heading__title">What goes into each project.</h2>
+          <p class="prose-lead section-heading__lead">Disciplines overlap. A packaging brief often becomes a display brief; a brand refresh usually needs photography to land.</p>
+        </div>
+        <div class="grid-3 mt-12">
+          <div class="card">
+            <span class="rule-gold" style="display:block; margin-bottom:1.25rem;"></span>
+            <h3 class="heading-md text-deepred">Strategy-led</h3>
+            <p class="prose-body mt-3">Every project starts with goals and audience — not aesthetics. We design to outcomes.</p>
+          </div>
+          <div class="card">
+            <span class="rule-gold" style="display:block; margin-bottom:1.25rem;"></span>
+            <h3 class="heading-md text-deepred">In-house craft</h3>
+            <p class="prose-body mt-3">Seven disciplines under one roof. No briefs lost in translation between agencies.</p>
+          </div>
+          <div class="card">
+            <span class="rule-gold" style="display:block; margin-bottom:1.25rem;"></span>
+            <h3 class="heading-md text-deepred">Production-ready</h3>
+            <p class="prose-body mt-3">We deliver files vendors can use, and we liaise with production when needed. No hand-off cliffs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container cta-band__inner">
+        <div class="cta-band__max">
+          <span class="rule-gold" style="display:block;"></span>
+          <h2 class="heading-lg cta-band__title">Have a project in mind?</h2>
+          <p class="prose-lead cta-band__lead">We're always happy to talk through a brief — even if it's early and uncertain. Especially then, in fact.</p>
+          <a href="/contact.html" class="btn btn-on-dark cta-band__cta">Start a Conversation</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__top">
+      <div class="site-footer__grid">
+        <div>
+          <div class="footer-logo">
+            <div class="footer-logo__plate">
+              <img src="/logo.png" alt="Circus One Limited" width="160" height="50" />
+            </div>
+            <span class="footer-logo__rule"></span>
+          </div>
+          <p class="mt-6 prose-body text-cream-65" style="max-width:20rem;">
+            Adding values to all business since 1992. Design and marketing partners for brands from luxury spirits to local heroes.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/portfolio.html">Portfolio</a></li>
+            <li><a href="/clients.html">Clients</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul class="text-cream-65">
+            <li>Brand Building &amp; Corporate ID</li>
+            <li>Product Packaging</li>
+            <li>Display &amp; Showcases</li>
+            <li>Web &amp; Multimedia</li>
+            <li>Advertising &amp; Collateral</li>
+            <li>Events &amp; Exhibitions</li>
+            <li>Photography</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <address>
+            <p>No 203–208, 1/F New Mandarin Plaza<br/>14 Science Museum Road, Tsimshatsui<br/>Kowloon, Hong Kong</p>
+            <p>
+              <a href="tel:+85225034581">t +852 2503 4581</a><br/>
+              f +852 2503 4616<br/>
+              <a href="mailto:info@circusone.com">info@circusone.com</a>
+            </p>
+          </address>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <p>&copy; <span class="copyright-year">2024</span> Circus One Limited. All rights reserved.</p>
+        <p>Design &amp; marketing partners · est. 1992 · Hong Kong</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+  <script>
+    document.querySelectorAll('.copyright-year').forEach(el => el.textContent = new Date().getFullYear());
+  </script>
+</body>
+</html>

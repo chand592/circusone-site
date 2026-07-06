@@ -8,36 +8,32 @@ This repository contains the working prototype built for director review. Conten
 
 ## Tech Stack
 
-- **[Astro](https://astro.build)** v4 — static site generator, component-based, ships zero JS by default
-- **[Tailwind CSS](https://tailwindcss.com)** v3 — utility-first styling with a custom brand palette
+- **Plain HTML** (6 static pages) — no build step, no framework
+- **Hand-written CSS** (`styles.css`) — semantic class names, CSS custom properties for the brand palette
+- **Vanilla JavaScript** (`script.js`) — mobile menu toggle, portfolio filter, copyright year
 - **Fraunces** (serif, display) + **Inter** (sans, body) — loaded via Google Fonts
 
-No backend, no database, no CMS. The site outputs static HTML/CSS that deploys to any static host (Netlify, Vercel, GitHub Pages).
+No backend, no database, no CMS, no `node_modules`. The site is six HTML files and one stylesheet that deploys to any static host (Netlify, Vercel, GitHub Pages, S3).
 
 ---
 
 ## Quick Start
 
-### Prerequisites
+### View the site
 
-- **Node.js** v18+ (built on v24)
-- **npm** v10+
-
-### Install & run
+Open `index.html` in a browser, or run a one-liner static server:
 
 ```bash
-npm install
-npm run dev
+# Python 3
+python -m http.server 8080
+
+# Node (no install needed)
+npx http-server -p 8080
 ```
 
-The dev server starts at **http://localhost:4321**.
+Then visit **http://localhost:8080**.
 
-### Build for production
-
-```bash
-npm run build      # outputs static files to dist/
-npm run preview    # serves the built site locally for verification
-```
+That's it. No `npm install`, no build, no compilation. Edit a file, refresh the browser.
 
 ---
 
@@ -45,42 +41,22 @@ npm run preview    # serves the built site locally for verification
 
 ```
 circusone-site/
+├── index.html                # Home
+├── about.html                # 1992 origin story, values, team
+├── services.html             # 7 service disciplines + process
+├── portfolio.html            # Filterable project grid
+├── clients.html              # Client wall + testimonials + case studies
+├── contact.html              # Contact form + HK office details
+├── styles.css                # Design tokens + every component class
+├── script.js                 # Mobile menu, portfolio filter
 ├── public/
-│   ├── logo.png                    # Original company logo (kept for reference)
-│   └── logo-concepts/              # New logo concepts for director review
-│       ├── preview.html            # Open this to compare logo options
+│   ├── logo.png              # Original company logo (kept for reference)
+│   └── logo-concepts/        # New logo concepts for director review
+│       ├── preview.html      # Open this to compare logo options
 │       ├── concept-1-modern-orbit.svg
-│       ├── concept-4-original-refreshed.svg
 │       └── ... (dark variants for deep-red backgrounds)
-├── src/
-│   ├── components/
-│   │   ├── Header.astro            # Sticky nav with logo + mobile menu
-│   │   ├── Footer.astro            # Contact details + dynamic copyright year
-│   │   ├── Hero.astro              # Page hero sections
-│   │   ├── SectionHeading.astro    # Reusable numbered section labels
-│   │   ├── ServiceCard.astro       # Service offering cards
-│   │   ├── ProjectCard.astro       # Portfolio project cards
-│   │   ├── TestimonialCard.astro   # Client quote cards
-│   │   ├── ClientLogo.astro        # Client name plates
-│   │   ├── Stat.astro              # Statistic display
-│   │   ├── CTABand.astro           # Call-to-action sections
-│   │   └── ContactForm.astro       # Formspree-powered contact form
-│   ├── layouts/
-│   │   └── Base.astro              # Shared <head>, header, footer wrapper
-│   ├── pages/
-│   │   ├── index.astro             # Home
-│   │   ├── about.astro             # About — 1992 origin, values, team
-│   │   ├── services.astro          # 7 service disciplines + process
-│   │   ├── portfolio.astro         # Filterable project grid
-│   │   ├── clients.astro           # Client wall + testimonials + case studies
-│   │   └── contact.astro           # Contact form + HK office details
-│   └── styles/
-│       └── global.css              # Tailwind layers + component classes
-├── logo-concepts/                  # Source files for logo exploration
-├── astro.config.mjs
-├── tailwind.config.mjs             # Brand palette (single source of truth)
-├── tsconfig.json
-└── package.json
+├── logo-concepts/            # Source files for logo exploration
+└── README.md
 ```
 
 ---
@@ -89,15 +65,15 @@ circusone-site/
 
 ### Brand Palette
 
-All colors are defined in `tailwind.config.mjs` — change them in one place and the entire site updates.
+All colors live as CSS custom properties at the top of `styles.css` — change them in one place and the entire site updates.
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `deepred` | `#5C1A20` | Primary dark — hero, portfolio, CTA, footer backgrounds |
-| `cream` | `#F5F2EC` | Page base — welcoming, light sections, text on dark |
-| `gold` | `#C8A96A` | Accent — hairline rules, section numbers, hover details (used sparingly) |
-| `terracotta` | `#8B3A2F` | Interaction accent — hover states, active nav, links on light |
-| `heritage` | `#615F5B` | Muted text, body copy, subtle dividers |
+| `--deepred` | `#5C1A20` | Primary dark — hero, portfolio, CTA, footer backgrounds |
+| `--cream` | `#F5F2EC` | Page base — welcoming, light sections, text on dark |
+| `--gold` | `#C8A96A` | Accent — hairline rules, section numbers, hover details (used sparingly) |
+| `--terracotta` | `#8B3A2F` | Interaction accent — hover states, active nav, links on light |
+| `--heritage` | `#615F5B` | Muted text, body copy, subtle dividers |
 
 ### Typography
 
@@ -117,12 +93,12 @@ All colors are defined in `tailwind.config.mjs` — change them in one place and
 
 | Page | Path | Content |
 |------|------|---------|
-| Home | `/` | Hero, 4 service pillars, featured work, stats, about teaser, client wall, testimonials, CTA |
-| About | `/about` | 1992 origin story, stats card, timeline, values, team grid |
-| Services | `/services` | 7 disciplines with deliverables, 4-step process |
-| Portfolio | `/portfolio` | Filterable project grid on deep-red backdrop, capabilities |
-| Clients | `/clients` | Client logo wall, testimonials, case studies |
-| Contact | `/contact` | Contact form + HK office address, phone, email, hours, map |
+| Home | `/index.html` | Hero, 4 service pillars, featured work, stats, about teaser, client wall, testimonials, CTA |
+| About | `/about.html` | 1992 origin story, stats card, timeline, values, team grid |
+| Services | `/services.html` | 7 disciplines with deliverables, 4-step process |
+| Portfolio | `/portfolio.html` | Filterable project grid on deep-red backdrop, capabilities |
+| Clients | `/clients.html` | Client logo wall, testimonials, case studies |
+| Contact | `/contact.html` | Contact form + HK office address, phone, email, hours, map |
 
 ---
 
@@ -135,10 +111,10 @@ All colors are defined in `tailwind.config.mjs` — change them in one place and
 - **Email**: info@circusone.com (recruit@circusone.com for recruitment)
 - **Client names**: Sourced from the public existing circusone.com site
 
-### Placeholders (marked with `<!-- REPLACE: ... -->`)
+### Placeholders (marked with HTML comments)
 - All body copy beyond the firm's public facts
 - Testimonial quotes (do **not** attribute fabricated quotes to real clients)
-- Project imagery (gradient/color blocks stand in for real work samples)
+- Project imagery (HSL color blocks stand in for real work samples)
 - Team photos, names, and roles
 - Office hours (to confirm)
 
@@ -146,7 +122,7 @@ All colors are defined in `tailwind.config.mjs` — change them in one place and
 The form uses **[Formspree](https://formspree.io)** (free tier). To activate:
 1. Create a form at formspree.io
 2. Copy your form ID
-3. Update the `formAction` URL in `src/components/ContactForm.astro`
+3. Update the `action` URL in `contact.html` (search for `https://formspree.io/f/your-form-id`)
 
 ---
 
@@ -156,7 +132,7 @@ The `logo-concepts/` folder contains SVG logo explorations for director review. 
 
 **To review the concepts:**
 - Open `public/logo-concepts/preview.html` in a browser, or
-- Visit `http://localhost:4321/logo-concepts/preview.html` when the dev server is running
+- Visit `http://localhost:8080/logo-concepts/preview.html` when running a local server
 
 Each concept has a cream version (for the site header) and a reversed version (for the deep-red footer). See the preview page for details.
 
@@ -164,12 +140,12 @@ Each concept has a cream version (for the site header) and a reversed version (f
 
 ## Deployment
 
-The site is static and deploys to any static host:
+The site is plain static HTML and deploys to any static host.
 
 ### Netlify / Vercel (recommended)
 1. Push this repo to GitHub
 2. Connect the repo to Netlify or Vercel
-3. Build command: `npm run build` · Output directory: `dist`
+3. Build command: *(none)* · Publish directory: `/` (repo root)
 4. Auto-deploys on every push
 
 ### Custom domain
@@ -190,16 +166,16 @@ git push                # push to GitHub
 
 ## New Device Setup / Recovery
 
-The **GitHub repo is the source of truth** for the site. If you lose your local files or switch devices, cloning the repo recovers all site code, components, styles, the original logo, and the logo concepts. The only things not in the repo are the development tools and the opencode configuration (which live globally on each machine).
+The **GitHub repo is the source of truth** for the site. If you lose your local files or switch devices, cloning the repo recovers all site code, components, styles, the original logo, and the logo concepts. The only things not in the repo are the development tools (none required for this site) and the opencode configuration (which lives globally on each machine).
 
 ### What's recoverable from the repo (everything site-related)
-- All source code (`src/`, configs, `package.json`)
+- All HTML pages and `styles.css` + `script.js`
 - Original logo (`public/logo.png`)
 - Logo concepts (`logo-concepts/`, `public/logo-concepts/`)
 - This README
 
 ### What's NOT in the repo (must set up per device)
-- Node.js, Git, GitHub CLI (development tools)
+- A text editor (VS Code, etc.) and a browser — that's it
 - opencode + oh-my-opencode-slim configuration (lives in `~/.config/opencode/`)
 - GitHub authentication (per-device, interactive)
 
@@ -207,15 +183,11 @@ The **GitHub repo is the source of truth** for the site. If you lose your local 
 
 #### 1. Install prerequisites
 
-- **Node.js** v18+ — download from https://nodejs.org
 - **Git** — download from https://git-scm.com/downloads (or `winget install Git.Git` on Windows)
-- **GitHub CLI** — download from https://cli.github.com (or `winget install GitHub.cli` on Windows)
 
 Verify:
 ```bash
-node --version    # v18+ required
 git --version
-gh --version
 ```
 
 #### 2. Authenticate with GitHub
@@ -223,6 +195,9 @@ gh --version
 ```bash
 gh auth login
 ```
+
+If you don't have the GitHub CLI: download from https://cli.github.com (or `winget install GitHub.cli` on Windows).
+
 Choose: GitHub.com → HTTPS → Yes (authenticate git) → Login with a web browser. Follow the prompts.
 
 #### 3. Clone the repo
@@ -232,14 +207,17 @@ git clone https://github.com/chand592/circusone-site.git
 cd circusone-site
 ```
 
-#### 4. Install dependencies & run
+#### 4. Open the site
+
+Double-click `index.html`, or run a one-liner server:
 
 ```bash
-npm install
-npm run dev
+python -m http.server 8080
+# or
+npx http-server -p 8080
 ```
 
-The dev server starts at **http://localhost:4321**. You're back where you left off.
+Then visit **http://localhost:8080**. You're back where you left off.
 
 #### 5. (Optional) Restore opencode + oh-my-opencode-slim
 
@@ -277,13 +255,10 @@ The opencode configuration at `~/.config/opencode/` is not in this repo (it's gl
 ### Recovery checklist
 
 If you're starting fresh on a new device, work through this in order:
-- [ ] Node.js installed (`node --version` works)
 - [ ] Git installed (`git --version` works)
-- [ ] GitHub CLI installed (`gh --version` works)
 - [ ] `gh auth login` completed (`gh auth status` shows logged in)
 - [ ] Repo cloned (`git clone https://github.com/chand592/circusone-site.git`)
-- [ ] `npm install` succeeded
-- [ ] `npm run dev` serves at http://localhost:4321
+- [ ] `index.html` opens in a browser, or local server is running
 - [ ] (Optional) opencode + oh-my-opencode-slim installed and `ping all agents` responds
 - [ ] (Optional) Composio MCP re-added and authenticated
 
@@ -296,7 +271,7 @@ Once the checklist is complete, you have the full working environment back.
 - [ ] Director sign-off on the look (deep red + gold + cream palette)
 - [ ] Choose a logo concept and finalize with a licensed font + outlined paths
 - [ ] Replace placeholder copy with final content
-- [ ] Replace gradient project blocks with real work imagery
+- [ ] Replace HSL color blocks with real work imagery
 - [ ] Add real team photos and bios
 - [ ] Set up Formspree and test the contact form
 - [ ] Confirm office hours
